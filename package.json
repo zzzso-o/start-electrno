@@ -1,0 +1,48 @@
+{
+  "builder": {
+    "productName": "start-electron",
+    "asar": false,
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true
+    },
+    "asarUnpack": [
+      "./node_modules/node-notifier/**/*"
+    ]
+  },
+  "name": "start-electron",
+  "version": "1.0.0",
+  "description": "electron example",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win-ia32": "electron-builder --win --ia32",
+    "build:win-x64": "electron-builder --win --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "none",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^21.2.2",
+    "node-notifier": "^10.0.1"
+  },
+  "dependencies": {
+    "@electron/asar": "^3.2.1"
+  }
+}
